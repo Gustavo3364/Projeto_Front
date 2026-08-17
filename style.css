@@ -28,21 +28,27 @@ body{
 }
 
 .card{
-    width: 100%;
-    max-width: 380px;
+   height: 540px;
+    width: 500px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 50px;
+    /* Sombreamento do card */
+    box-shadow: 0 0 30px rgba(0, 0, 0, .08);
 }
 
 
 
 .card h2{
-     color: #1e3a8a;
+    color: #1e3a8a;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .card p{
     color: #666;
     margin-bottom: 35px;
-
+    text-align: center;
 }
 
 .card form{
@@ -68,24 +74,27 @@ body{
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 40px;
+    color: #1e3a8a
 }
 
 .left h1{
     font-size: 42px;
     margin-bottom: 20px;
-
+    color: #1e3a8a
 }
 
 .left p{
     line-height: 25px;
     margin-bottom: 40px;
+    color: #666
 }
 
 .right{
     flex: 1;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 70px;
+    background-color: #fff;
 }
 
 label {
@@ -116,8 +125,7 @@ label {
 
 .forgot{
     text-decoration: none;
-    color: #1e3a8a;
-
+    color: #3c68e0;
     margin-bottom: 25px;
     font-size: 14px;
 }
