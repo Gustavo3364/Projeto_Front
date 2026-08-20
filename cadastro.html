@@ -1,20 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ideia Futura</title>
+    <title>Cadastro</title>
 
     <link rel="stylesheet" href="css/style.css">
-    
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
 
-    <div class="container">
+     <div class="container">
 
         <!-- Lado esquerdo -->
         <div class="left">
@@ -24,13 +19,14 @@
             </div>
 
             <h1>
-                Transforme ideias <br>
-                em realidade.
+                Sua ideia pode <br>
+                mudar o futuro
             </h1>
 
             <p>
-                Compartilhe conceitos, inspire pessoas <br>
-                e dê uma nova chance às boas ideias.
+                Crie sua conta e comece a compartilhar <br>
+                explorar e transformar ideias em <br>
+                projetos reais
             </p>
 
             <img src="img/imagem1.png" alt="Imagem do sistema" class="imagem-login">
@@ -42,11 +38,23 @@
 
             <div class="card">
 
-                <h2>Bem-vindo de volta!</h2>
+                <h2>Crie sua conta</h2>
 
-                <p>Faça login para continuar no <b>Ideia Futura.</b></p>
+                <p>Preencha os dados para se cadastrar</p>
 
-                <form id="formLogin">
+                <form>
+
+                    <label><b>Nome de usuário</b></label>
+
+                    <div class="input-box">
+                        <i class="fa-regular fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="usuario"
+                            name="usuario"
+                            placeholder="Digite seu nome de usuário">
+                    </div>
 
                     <label><b>E-mail</b></label>
 
@@ -55,7 +63,6 @@
 
                         <input
                             type="email"
-                            id="email"
                             placeholder="Digite seu e-mail">
                     </div>
 
@@ -67,17 +74,27 @@
 
                         <input
                             type="password"
-                            id="senha"
                             placeholder="Digite sua senha">
 
                         <i class="fa-regular fa-eye"></i>
 
                     </div>
 
-                    <a href="#" class="forgot">
-                        Esqueceu sua senha?
-                    </a>
+                    <label><b> Confirme sua Senha</b></label>
 
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            placeholder="Confirme sua senha">
+
+                        <i class="fa-regular fa-eye"></i>
+
+                    </div>
+
+                    
                     <button type="submit">
                         Entrar
                     </button>
@@ -87,8 +104,8 @@
                 </form>
 
                 <div class="register">
-                    Não tem login?
-                   <a href="cadastro.html"> Cadastrar-se</a>
+                    Já tem uma conta?
+                   <a href="index.html"> Faça login</a>
 
                 </div>
 
@@ -97,7 +114,7 @@
         </div>
 
     </div>
-
+    
     <script src="js/scripts.js"></script>
 </body>
 </html>
