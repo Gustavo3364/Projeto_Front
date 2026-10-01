@@ -45,7 +45,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="logo" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
             <i className="fa-regular fa-lightbulb"></i>
-            <span>IdeiaFutura</span>
+            <span style={{ color:"#fff"}}>IdeiaFutura</span>
           </div>
           {mobileOpen && (
             <button

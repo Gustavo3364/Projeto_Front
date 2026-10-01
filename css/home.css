@@ -42,16 +42,22 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    padding: 25px 18px;
+    padding: 10px 18px;
 }
 
 .logo {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 7px;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 28px;
+
+    margin-top: 10px;
+    margin-bottom: 40px;
+
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
 
 .logo i {
