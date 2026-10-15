@@ -20,42 +20,15 @@ export const Topbar: React.FC<TopbarProps> = ({ onToggleMobileSidebar }) => {
           background: "none",
           border: "none",
           color: "#123b82",
-          fontSize: "18px",
+          fontSize: "22px",
           cursor: "pointer",
-          marginRight: "auto",
+          padding: "10px",
         }}
       >
         <i className="fa-solid fa-bars"></i>
       </button>
 
       <div className="topbar-right" style={{ marginLeft: "auto" }}>
-        {/* Botão de notificações */}
-        <button
-          className="notification-button"
-          type="button"
-          style={{ position: "relative" }}
-        >
-          <i className="fa-regular fa-bell"></i>
-          <span
-            style={{
-              position: "absolute",
-              top: "-2px",
-              right: "-4px",
-              background: "#ef4444",
-              color: "white",
-              fontSize: "8px",
-              fontWeight: "bold",
-              borderRadius: "50%",
-              width: "12px",
-              height: "12px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            3
-          </span>
-        </button>
 
         {/* Usuário e Dropdown */}
         <div style={{ position: "relative" }}>

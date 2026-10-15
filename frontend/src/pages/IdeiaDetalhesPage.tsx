@@ -714,7 +714,7 @@ export const IdeiaDetalhesPage: React.FC = () => {
               <textarea value={editDescricao} onChange={(e) => setEditDescricao(e.target.value)} required rows={5} style={{ width: "100%", padding: "10px", borderRadius: "6px", border: "1px solid #cbd5e1", marginBottom: "16px", fontFamily: "inherit" }} />
 
               <div style={{ display: "flex", justifyContent: "flex-end", gap: "10px" }}>
-                <button type="button" onClick={() => setIsEditIdeaModalOpen(false)} style={{ padding: "8px 16px", borderRadius: "6px", border: "none", background: "#f1f5f9" }}>Cancelar</button>
+                <button type="button" onClick={() => setIsEditIdeaModalOpen(false)} style={{ padding: "8px 16px", borderRadius: "6px", border: "none", background: "#374151" }}>Cancelar</button>
                 <button type="submit" disabled={savingIdea} style={{ padding: "8px 16px", borderRadius: "6px", border: "none", background: "#07327c", color: "white", fontWeight: "bold" }}>{savingIdea ? "Salvando..." : "Salvar Alterações"}</button>
               </div>
             </form>
@@ -731,7 +731,7 @@ export const IdeiaDetalhesPage: React.FC = () => {
               Tem certeza que deseja excluir esta ideia? Esta ação não poderá ser desfeita e removerá todos os comentários e salvos associados.
             </p>
             <div style={{ display: "flex", justifyContent: "flex-end", gap: "10px" }}>
-              <button type="button" onClick={() => setIsDeleteModalOpen(false)} style={{ padding: "8px 16px", borderRadius: "6px", border: "none", background: "#f1f5f9", cursor: "pointer" }}>Cancelar</button>
+              <button type="button" onClick={() => setIsDeleteModalOpen(false)} style={{ padding: "8px 16px", borderRadius: "6px", border: "none", background: "#374151", cursor: "pointer" }}>Cancelar</button>
               <button type="button" onClick={handleDeleteIdea} disabled={deletingIdea} style={{ padding: "8px 16px", borderRadius: "6px", border: "none", background: "#ef4444", color: "white", fontWeight: "bold", cursor: "pointer" }}>{deletingIdea ? "Excluindo..." : "Sim, Excluir Ideia"}</button>
             </div>
           </div>

@@ -18,6 +18,153 @@ const CATEGORIES_OPTIONS = [
 
 const STATUS_OPTIONS = ["Todos", "Disponível", "Em desenvolvimento", "Concluída"];
 
+
+interface CustomFilterSelectProps {
+  label: string;
+  options: string[];
+  value: string;
+  onChange: (value: string) => void;
+}
+
+const CustomFilterSelect: React.FC<CustomFilterSelectProps> = ({
+  label,
+  options,
+  value,
+  onChange,
+}) => {
+  const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState("");
+
+  return (
+    <div style={{
+      position: "relative",
+      width: "220px",
+      flexShrink: 0,
+    }}>
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        style={{
+          width: "100%",
+          height: "44px",
+          padding: "0 14px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "8px",
+          border: open
+            ? "1px solid #1d5fc4"
+            : "1px solid #cbd7e8",
+          borderRadius: "10px",
+          background: "#ffffff",
+          color: "#123b82",
+          fontSize: "13px",
+          fontWeight: 600,
+          cursor: "pointer",
+          boxShadow: open
+            ? "0 0 0 3px rgba(29,95,196,0.12)"
+            : "0 2px 5px rgba(7,50,124,0.04)",
+          transition: "all 0.2s ease",
+        }}
+      >
+        <span style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+        }}>
+  <i
+    className={`fa-solid ${
+      label === "Categoria" ? "fa-border-all" : "fa-circle-check"
+    }`}
+    style={{
+      color: "#174ca5",
+      fontSize: "16px",
+    }}
+  />
+  {label}: {value}
+</span>
+
+        <i
+          className="fa-solid fa-chevron-down"
+          style={{
+            fontSize: "11px",
+            transition: "transform 0.2s ease",
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+          }}
+        />
+      </button>
+
+      {open && (
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(100% + 6px)",
+            left: 0,
+            width: "100%",
+            padding: "5px",
+            background: "#ffffff",
+            border: "1px solid #e0e8f4",
+            borderRadius: "10px",
+            boxShadow: "0 10px 25px rgba(7,50,124,0.14)",
+            zIndex: 100,
+          }}
+        >
+          {options.map((option) => (
+            <button
+              key={option}
+              type="button"
+              onClick={() => {
+                onChange(option);
+                setOpen(false);
+              }}
+              onMouseEnter={() => setHovered(option)}
+              onMouseLeave={() => setHovered("")}
+              style={{
+                display: "block",
+                width: "100%",
+                padding: "10px 11px",
+                textAlign: "left",
+                border: "none",
+                borderRadius: "6px",
+                background:
+                  value === option
+                    ? "#eaf2ff"
+                    : hovered === option
+                    ? "#f3f7ff"
+                    : "#ffffff",
+                color:
+                  value === option ? "#0b4eb3" : "#334155",
+                fontSize: "13px",
+                fontWeight: value === option ? 600 : 400,
+                cursor: "pointer",
+                transition: "background 0.15s ease",
+              }}
+            >
+              <span style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "8px",
+              }}>
+                {option}
+
+                {value === option && (
+                  <i
+                    className="fa-solid fa-check"
+                    style={{ color: "#1d5fc4", fontSize: "11px" }}
+                  />
+                )}
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+
 export const HomePage: React.FC = () => {
   const { showToast } = useToast();
   const [ideias, setIdeias] = useState<Ideia[]>([]);
@@ -218,55 +365,29 @@ export const HomePage: React.FC = () => {
               />
             </div>
 
-            {/* Filtro por Categoria */}
-            <select
-              value={categoriaFilter}
-              onChange={(e) => {
-                setCategoriaFilter(e.target.value);
-                setPage(1);
-              }}
-              style={{
-                padding: "9px 12px",
-                fontSize: "12px",
-                borderRadius: "8px",
-                border: "1px solid #cbd5e1",
-                outline: "none",
-                background: "white",
-                color: "#1e3a8a",
-                fontWeight: "bold",
-              }}
-            >
-              {CATEGORIES_OPTIONS.map((cat) => (
-                <option key={cat} value={cat}>
-                  Categoria: {cat}
-                </option>
-              ))}
-            </select>
+            
+{/* Filtro por Categoria */}
+<CustomFilterSelect
+  label="Categoria"
+  options={CATEGORIES_OPTIONS}
+  value={categoriaFilter}
+  onChange={(value) => {
+    setCategoriaFilter(value);
+    setPage(1);
+  }}
+/>
 
-            {/* Filtro por Status */}
-            <select
-              value={statusFilter}
-              onChange={(e) => {
-                setStatusFilter(e.target.value);
-                setPage(1);
-              }}
-              style={{
-                padding: "9px 12px",
-                fontSize: "12px",
-                borderRadius: "8px",
-                border: "1px solid #cbd5e1",
-                outline: "none",
-                background: "white",
-                color: "#1e3a8a",
-                fontWeight: "bold",
-              }}
-            >
-              {STATUS_OPTIONS.map((st) => (
-                <option key={st} value={st}>
-                  Status: {st}
-                </option>
-              ))}
-            </select>
+{/* Filtro por Status */}
+<CustomFilterSelect
+  label="Status"
+  options={STATUS_OPTIONS}
+  value={statusFilter}
+  onChange={(value) => {
+    setStatusFilter(value);
+    setPage(1);
+  }}
+/>
+
 
             {/* Botão Limpar Filtros */}
             {(debouncedSearch || categoriaFilter !== "Todas" || statusFilter !== "Todos") && (
@@ -394,6 +515,7 @@ export const HomePage: React.FC = () => {
               maxWidth: "540px",
               width: "100%",
               boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+              position: "relative"
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "18px" }}>
@@ -402,7 +524,7 @@ export const HomePage: React.FC = () => {
               </h3>
               <button
                 onClick={() => setIsModalOpen(false)}
-                style={{ background: "none", border: "none", fontSize: "18px", cursor: "pointer", color: "#64748b" }}
+                style={{ background: "none", border: "none", fontSize: "18px", cursor: "pointer", color: "#64748b", position: "absolute", top: "20px", right: "20px" }}
               >
                 <i className="fa-solid fa-xmark"></i>
               </button>

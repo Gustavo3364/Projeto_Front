@@ -8,7 +8,7 @@ const env = {
   db: {
     host: process.env.DB_HOST || "localhost",
     user: process.env.DB_USER || "root",
-    password: process.env.DB_PASSWORD || "1234",
+    password: process.env.DB_PASSWORD || "",
     database: process.env.DB_NAME || "projetos",
   },
 
@@ -17,5 +17,4 @@ const env = {
     refreshSecret: process.env.JWT_REFRESH_SECRET || "refresh_secret_dev",
   },
 };
-
 export default env;
