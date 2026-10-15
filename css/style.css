@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #F8FAFC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 60px;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+.container{
+
+    width: 90%;
+    max-width: 1200px;
+    min-height: 700px;
+    display: flex;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .08);
+    overflow: hidden;
+    
+}
+
+.card{
+   height: 540px;
+    width: 500px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 50px;
+    /* Sombreamento do card */
+    box-shadow: 0 0 30px rgba(0, 0, 0, .08);
+}
+
+
+
+.card h2{
+    color: #1e3a8a;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card p{
+    color: #666;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.card form{
+    display: flex;
+    flex-direction: column;
+}
+
+.imagem-login{
+    width:100%;
+    max-width: 420px;
+    margin-top: 30px;
+}
+
+.left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+}
+
+.logo{
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #1e3a8a;
+}
+
+.left h1{
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #1e3a8a;
+}
+
+.left p{
+    line-height: 25px;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.right{
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+    background-color: #fff;
+    display: flex;
+}
+
+label {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.input-box{
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 20px;
+}
+
+.input-box i{
+    color: #888;
+}
+
+.input-box input{
+    flex: 1;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.forgot{
+    text-decoration: none;
+    color: #3c68e0;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+button{
+    background: #1e3a8a;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 14px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+.register{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.register a{
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: bold;
+}
